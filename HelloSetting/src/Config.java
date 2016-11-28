@@ -1,3 +1,16 @@
+import com.intellij.openapi.components.*;
+import com.intellij.openapi.project.Project;
+import com.intellij.util.xmlb.XmlSerializerUtil;
+import com.jetbrains.annotations.Nullable;
+
+＠State(
+    name = "Config",
+    reloadable = true,
+    storages = {
+        @Storage(id = "default", file = "$PROJECT_FILE$"),
+        @Storage(id = "dir", file = "$PROJECT_CONFIG_DIR$/setting-plugin.xml", scheme = StorageScheme.DIRECTORY_BASED)
+    }
+)
 public class Config implements PersistentStateComponent<Config> {
     private Integer count;
     private String name;
