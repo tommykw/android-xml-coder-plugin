@@ -16,7 +16,7 @@
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+  <idea-version since-build="141.0"/>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
@@ -30,9 +30,9 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="HelloSetting" class="HelloSetting" text="Echo">
+    <action id="HelloSettingV2" class="HelloSettingV2" text="Echo">
       <add-to-group group-id="ToolsMenu" anchor="first"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt P"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="meta alt A"/>
     </action>
   </actions>
 
