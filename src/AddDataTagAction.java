@@ -1,8 +1,11 @@
 import com.intellij.codeInsight.intention.IntentionAction;
+import com.intellij.lang.xml.XMLLanguage;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.XmlElementFactory;
 import com.intellij.psi.xml.XmlFile;
+import com.intellij.psi.xml.XmlTag;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -10,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by tommy on 2016/12/01.
  */
-public class AddDataTagIntention implements IntentionAction {
+public class AddDataTagAction implements IntentionAction {
 
     @Nls
     @NotNull
@@ -28,16 +31,20 @@ public class AddDataTagIntention implements IntentionAction {
 
     @Override
     public boolean isAvailable(@NotNull Project project, Editor editor, PsiFile psiFile) {
-        if (psiFile instanceof XmlFile) {
-        } else {
-            return false;
-        }
-        return false;
+        if (!(psiFile instanceof XmlFile)) return false;
+        XmlTag xmlTag = ((XmlFile) psiFile).getRootTag();
+        if (xmlTag == null) return false;
+        return xmlTag.getName() == "LinearLayout";
     }
 
     @Override
     public void invoke(@NotNull Project project, Editor editor, PsiFile psiFile) throws IncorrectOperationException {
-
+        if (!(psiFile instanceof XmlFile)) return;
+        XmlTag newTag = ((XmlFile) psiFile).getRootTag()
+                .addSubTag(XmlElementFactory.getInstance(project).createTagFromText("<hoge></hoge>", XMLLanguage.INSTANCE), true);
+        if (newTag.getValue().getTextRange().getStartOffset() != 0) {
+            editor.getCaretModel().moveToOffset(newTag.getValue().getTextRange().getStartOffset());
+        }
     }
 
     @Override
