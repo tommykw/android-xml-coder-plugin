@@ -34,6 +34,10 @@
       <add-to-group group-id="ToolsMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="meta alt A"/>
     </action>
+    <action id="AddDataTagIntention" class="AddDataTagIntention" text="Tag">
+      <add-to-group group-id="MaintenanceGroup" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="meta alt B"/>
+    </action>
   </actions>
 
 </idea-plugin>
