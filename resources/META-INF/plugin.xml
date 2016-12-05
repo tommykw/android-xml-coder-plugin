@@ -26,23 +26,10 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <intentionAction>
-      <className>AddDataTagAction</className>
-      <category>XML</category>
-    </intentionAction>
-
-    <intentionAction>
-      <className>LayoutAction</className>
-      <category>XML</category>
-    </intentionAction>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
-    <action id="HelloSettingV2" class="HelloSettingV2" text="Echo">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="meta alt A"/>
-    </action>
   </actions>
 
 </idea-plugin>
