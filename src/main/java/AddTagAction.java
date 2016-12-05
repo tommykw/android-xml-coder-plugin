@@ -9,13 +9,13 @@ import com.intellij.psi.xml.XmlTag;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Created by tommy on 2016/12/01.
  */
-public class AddDataTagAction implements IntentionAction {
-
-    @Nls
+public class AddTagAction implements IntentionAction {
+    ＠Nls
     @NotNull
     @Override
     public String getText() {
