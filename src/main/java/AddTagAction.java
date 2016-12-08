@@ -9,17 +9,18 @@ import com.intellij.psi.xml.XmlTag;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 /**
  * Created by tommy on 2016/12/01.
  */
 public class AddTagAction implements IntentionAction {
-    ＠Nls
+    @Nls
     @NotNull
     @Override
     public String getText() {
-        return "Add <RelativeLayout> tag";
+        return "Add <RelativeLayout> tag;";
     }
 
     @Nls
@@ -33,8 +34,12 @@ public class AddTagAction implements IntentionAction {
     public boolean isAvailable(@NotNull Project project, Editor editor, PsiFile psiFile) {
         if (!(psiFile instanceof XmlFile)) return false;
         XmlTag xmlTag = ((XmlFile) psiFile).getRootTag();
-        if (xmlTag == null) return false;
-        return xmlTag.getName() == "LinearLayout";
+        return xmlTag != null && Objects.equals(xmlTag.getName(), "LinearLayout");
+    }
+
+    @Override
+    public boolean startInWriteAction() {
+        return true;
     }
 
     @Override
@@ -45,10 +50,5 @@ public class AddTagAction implements IntentionAction {
         if (newTag.getValue().getTextRange().getStartOffset() != 0) {
             editor.getCaretModel().moveToOffset(newTag.getValue().getTextRange().getStartOffset());
         }
-    }
-
-    @Override
-    public boolean startInWriteAction() {
-        return true;
     }
 }
