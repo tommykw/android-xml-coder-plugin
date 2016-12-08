@@ -45,8 +45,7 @@ public class AddTagAction implements IntentionAction {
     @Override
     public void invoke(@NotNull Project project, Editor editor, PsiFile psiFile) throws IncorrectOperationException {
         if (!(psiFile instanceof XmlFile)) return;
-        XmlTag newTag = ((XmlFile) psiFile).getRootTag()
-                .addSubTag(XmlElementFactory.getInstance(project).createTagFromText("<hoge></hoge>", XMLLanguage.INSTANCE), true);
+        XmlTag newTag = ((XmlFile) psiFile).getRootTag().addSubTag(XmlElementFactory.getInstance(project).createTagFromText("<hoge></hoge>", XMLLanguage.INSTANCE), true);
         if (newTag.getValue().getTextRange().getStartOffset() != 0) {
             editor.getCaretModel().moveToOffset(newTag.getValue().getTextRange().getStartOffset());
         }
