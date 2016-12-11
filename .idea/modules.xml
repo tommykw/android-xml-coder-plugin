@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloSettingV2.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloSettingV2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloSettingV2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloSettingV2_main.iml" group="HelloSettingV2" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloSettingV2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloSettingV2_test.iml" group="HelloSettingV2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/setting-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/setting-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/setting-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/setting-plugin_main.iml" group="setting-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/setting-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/setting-plugin_test.iml" group="setting-plugin" />
     </modules>
   </component>
 </project>
