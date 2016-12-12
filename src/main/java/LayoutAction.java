@@ -11,6 +11,7 @@ import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,51 +19,59 @@ import java.util.List;
  * Created by tommy on 2016/12/02.
  */
 public class LayoutAction implements IntentionAction {
-    private List<String> specifiedList = Arrays.asList("manifest", "project", "component", "module");
+    private List<String> checkList = Arrays.asList("manifest", "project", "component", "mobile");
 
     @Nls
     @NotNull
     @Override
     public String getText() {
-        return "layout action";
+        return "layout";
     }
 
     @Nls
     @NotNull
     @Override
     public String getFamilyName() {
-        return "layout action";
+        return "layout";
     }
 
     @Override
-    public boolean isAvailable(@NotNull Project project, Editor editor, PsiFile psiFile) {
-        if (!(psiFile instanceof XmlFile)) return false;
-        XmlTag rootTag = ((XmlFile) psiFile).getRootTag();
-        if (rootTag == null) return false;
-        String rootTagName = ((XmlFile) psiFile).getRootTag().getName();
-        if (specifiedList.contains(rootTagName)) return false;
-        return rootTagName != "layout" && rootTag.getAttribute("xmlns:android") != null;
+    public boolean isAvailable(@NotNull Project project, Editor editor, PsiFile file) {
+        if (!(file instanceof XmlFile)) return false;
+        XmlTag rootTag = ((XmlFile) file).getRootTag();
+        if (rootTag == null) {
+            return false;
+        }
+
+        String rootTagName = rootTag.getName();
+        if (checkList.contains(rootTagName)) {
+            return false;
+        }
+
+        return rootTagName != "layout" && rootTag.getAttribute("android") != null;
     }
 
     @Override
-    public void invoke(@NotNull Project project, Editor editor, PsiFile psiFile) throws IncorrectOperationException {
-        if (!(psiFile instanceof XmlFile)) return;
-        XmlTag rootTag = ((XmlFile) psiFile).getRootTag();
-        if (rootTag == null) return;
-
-        String specifiedAttrText = null;
+    public void invoke(@NotNull Project project, Editor editor, PsiFile file) throws IncorrectOperationException {
+        if (!(file instanceof XmlFile)) return;
+        XmlTag rootTag = ((XmlFile) file).getRootTag();
+        if (rootTag == null) {
+            return;
+        }
+        List attrs = new ArrayList();
         for (XmlAttribute attr : rootTag.getAttributes()) {
-            if (attr.getName().startsWith("xmlns:")) {
-                if (specifiedAttrText != null) {
-                    specifiedAttrText += " ";
-                }
-                specifiedAttrText += attr.getName();
+            if (attr.getName().startsWith("hoge")) {
+                attrs.add(attr.getText());
             }
         }
 
-        XmlElementFactory factory = XmlElementFactory.getInstance(project);
-        XmlTag tag = factory.createTagFromText("<android></android>", XMLLanguage.INSTANCE);
-        rootTag.replace(tag);
+//        String attrText;
+//        for (String attr : attrs) {
+//
+//        }
+//        if (specifiedAttrText != null) {
+//            specifiedAttrText += " ";
+//        }
     }
 
     @Override
