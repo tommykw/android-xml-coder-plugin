@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EchoPlugin.iml" filepath="$PROJECT_DIR$/EchoPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TagChanger.iml" filepath="$PROJECT_DIR$/.idea/modules/TagChanger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TagChanger_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TagChanger_main.iml" group="TagChanger" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TagChanger_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TagChanger_test.iml" group="TagChanger" />
     </modules>
   </component>
 </project>
