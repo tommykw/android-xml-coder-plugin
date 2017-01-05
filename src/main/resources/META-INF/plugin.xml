@@ -35,4 +35,9 @@
     <actions>
     </actions>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <fileTypeFactory implementation="MeterFileTypeFactory"/>
+        <syntaxHighlighter key="JMeter" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
+    </extensions>
 </idea-plugin>
