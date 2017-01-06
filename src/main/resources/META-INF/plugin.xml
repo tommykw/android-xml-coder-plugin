@@ -22,10 +22,6 @@
     <depends>com.intellij.modules.lang</depends>
     -->
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="sample" anchor="bottom" factoryClass="HelloWorldWindow"/>
-    </extensions>
-
     <application-components>
     </application-components>
 
@@ -37,7 +33,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <toolWindow id="sample" anchor="bottom" factoryClass="HelloWorldWindow"/>
         <fileTypeFactory implementation="MeterFileTypeFactory"/>
-        <syntaxHighlighter key="JMeter" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
+        <syntaxHighlighter key="Meter" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
     </extensions>
 </idea-plugin>
