@@ -32,9 +32,9 @@
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-        <toolWindow id="sample" anchor="bottom" factoryClass="HelloWorldWindow"/>
-        <fileTypeFactory implementation="MeterFileTypeFactory"/>
-        <syntaxHighlighter key="Meter" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
+        <intentionAction>
+            <className>RemoveTagIntention</className>
+            <category>Android</category>
+        </intentionAction>
     </extensions>
 </idea-plugin>

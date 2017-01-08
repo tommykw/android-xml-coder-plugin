@@ -10,14 +10,14 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.0.20"
+    id "org.jetbrains.intellij" version "0.1.10"
 }
 
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'kotlin'
 
 intellij {
-    version '14.1.4'
+    version '15.0.4'
     plugins 'coverage'
     pluginName 'sample'
 }
