@@ -29,5 +29,9 @@
             <className>RemoveTagIntention</className>
             <category>Android</category>
         </intentionAction>
+        <intentionAction>
+            <className>ReplaceHardcodeToResourceIntention</className>
+            <category>Android</category>
+        </intentionAction>
     </extensions>
 </idea-plugin>
