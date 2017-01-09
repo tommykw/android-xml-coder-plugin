@@ -1,26 +1,19 @@
 <idea-plugin version="2">
-    <id>com.yourcompany.unique.plugin.id</id>
-    <name>Sample plugin</name>
+    <id>com.github.tommykw.android-xml-coder-plugin</id>
+    <name>Android XML Coder Plugin</name>
     <version>0.0.1</version>
-    <vendor email="dummy" url="dummy">dummy</vendor>
+    <vendor email="destinys.lotus.1108mn@gmail.com" url="https://github.com/tommykw/android-xml-coder-plugin">Android XML Coder Plugin</vendor>
 
     <description><![CDATA[
-      Sample plugin.<br>
+      This plugin help you to edit xml in your Android project.
     ]]></description>
 
     <change-notes><![CDATA[
-      Release 0.0.1: Initial release.<br>
+      0.0.1: Initial release.<br>
     ]]>
     </change-notes>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
     <idea-version since-build="131"/>
-
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
 
     <application-components>
     </application-components>

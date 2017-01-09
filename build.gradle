@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.0.5-2'
+    ext.kotlin_version = '1.0.6'
 
     repositories {
         mavenCentral()
@@ -16,14 +16,17 @@ plugins {
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'kotlin'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 intellij {
     version '15.0.4'
-    plugins 'coverage'
-    pluginName 'sample'
+    plugins 'android'
+    pluginName 'Android XML Coder Plugin'
 }
 
-group 'TagChanger'
-version '1.0-SNAPSHOT'
+group 'com.github.tommykw.android-xml-coder-plugin'
+version '0.0.1'
 
 repositories {
     mavenCentral()
