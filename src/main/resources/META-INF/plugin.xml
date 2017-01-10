@@ -22,6 +22,13 @@
     </project-components>
 
     <actions>
+        <action id="ChnageAction"
+                class="ChangeAction"
+                text="change action"
+                description="change action">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="meta alt L"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
