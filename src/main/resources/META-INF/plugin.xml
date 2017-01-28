@@ -22,23 +22,28 @@
     </project-components>
 
     <actions>
-        <action id="ChnageAction"
-                class="ChangeAction"
-                text="change action"
-                description="change action">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="meta alt L"/>
-        </action>
     </actions>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
             <className>RemoveTagIntention</className>
-            <category>Android</category>
+            <category>Kotlin</category>
         </intentionAction>
         <intentionAction>
             <className>ReplaceHardcodeToResourceIntention</className>
             <category>Android</category>
+        </intentionAction>
+        <intentionAction>
+            <className>ConvertToSimpleConstructor</className>
+            <category>Kotlin</category>
+        </intentionAction>
+        <intentionAction>
+            <className>RemoveSemicolonsIntention</className>
+            <category>Kotlin</category>
         </intentionAction>
     </extensions>
 </idea-plugin>

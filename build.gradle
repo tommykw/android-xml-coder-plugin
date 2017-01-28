@@ -1,6 +1,5 @@
 buildscript {
     ext.kotlin_version = '1.0.6'
-
     repositories {
         mavenCentral()
     }
@@ -10,7 +9,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.1.10"
+    id "org.jetbrains.intellij" version "0.0.43"
 }
 
 apply plugin: 'org.jetbrains.intellij'
@@ -20,23 +19,21 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 intellij {
-    version '15.0.4'
-    plugins 'android'
-    pluginName 'Android XML Coder Plugin'
+    version '2016.1.2'
+    plugins = ['Kotlin']
+    pluginName 'Hoge'
+    alternativeIdePath '/Applications/Android Studio.app'
+
 }
 
-group 'com.github.tommykw.android-xml-coder-plugin'
-version '0.0.1'
+group 'com.github.tommykw.TagChanger'
+version '1.1.'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile 'junit:junit:4.12'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

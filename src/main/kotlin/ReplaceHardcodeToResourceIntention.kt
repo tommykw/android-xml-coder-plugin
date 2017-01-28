@@ -4,12 +4,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.xml.XmlFile
 
-/**
- * WIP
- */
 class ReplaceHardcodeToResourceIntention : IntentionAction {
     override fun getFamilyName() = text
-    override fun getText() = "Replace resource"
+    override fun getText() = "Setting hardcode resource"
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
@@ -17,5 +14,6 @@ class ReplaceHardcodeToResourceIntention : IntentionAction {
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
+        System.out.println("${project.projectFilePath}")
     }
 }
