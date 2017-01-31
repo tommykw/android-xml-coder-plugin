@@ -42,16 +42,18 @@ class ConvertToSimpleConstructor : IntentionAction {
         parentClass.getSecondaryConstructors().map { it.delete() }
 
         psiReference.element.addAfter(
-            JavaCodeFragmentFactory.getInstance(project).createTypeCodeFragment(
+            factory.createTypeCodeFragment(
                 String.format(CONSTRUCTOR_FORMAT, psiReference.canonicalText),
-                null,
-                false
-            ),
-            null
+                null
+            )
+            ,null
         )
 
-        val optimizedName = psiReference.canonicalText.substring(0, psiReference.canonicalText.length - viewName.length)
-        psiReference.element.replace(JavaCodeFragmentFactory.getInstance(project).createTypeCodeFragment(optimizedName, null, false))
+        val optimizedName = psiReference.canonicalText.substring(0, psiReference.canonicalText.length - viewName.length - 1)
+        println(optimizedName)
+        //psiReference.element.replace(factory.createTypeCodeFragment(optimizedName, null))
+        psiReference.element.delete()
+        psiReference.element.replace(factory.createTypeCodeFragment(optimizedName, null))
 
         listOf(
             Triple(CONTENT_FULL_QUALIFIED_NAME, factory, ktFile),
