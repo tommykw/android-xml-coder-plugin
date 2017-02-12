@@ -45,5 +45,9 @@
             <className>RemoveSemicolonsIntention</className>
             <category>Kotlin</category>
         </intentionAction>
+        <intentionAction>
+            <className>ResourceOptimizerIntention</className>
+            <category>Kotlin</category>
+        </intentionAction>
     </extensions>
 </idea-plugin>
